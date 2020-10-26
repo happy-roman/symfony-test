@@ -5,9 +5,9 @@ namespace App\Controller;
 
 
 use App\Entity\Book;
-use http\Env\Response;
-use Symfony\Bundle\FrameworkBundle\Controller\RedirectController;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 class BookController extends DefaultController
@@ -16,8 +16,9 @@ class BookController extends DefaultController
      * @Route ("update/{id}", name="update")
      * @param Request $request
      * @param int $id
+     * @return RedirectResponse
      */
-    public function update(Request $request, int $id)
+    public function update(Request $request, int $id): RedirectResponse
     {
         $params = $request->request->all();
         $entityManager = $this->getDoctrine()->getManager();
@@ -39,8 +40,9 @@ class BookController extends DefaultController
     /**
      * @Route ("create_book", name="create_book")
      * @param Request $request
+     * @return RedirectResponse|Response
      */
-    public function create(Request $request)
+    public function create(Request $request): Response
     {
         if( $request->isMethod('post'))
         {

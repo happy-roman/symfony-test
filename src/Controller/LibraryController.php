@@ -4,7 +4,6 @@
 namespace App\Controller;
 
 use App\Entity\Book;
-use http\Env\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -52,5 +51,4 @@ class LibraryController extends DefaultController
         $entityManager->flush();
         return $this->redirectToRoute('books');
     }
-
 }
