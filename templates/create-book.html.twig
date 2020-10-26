@@ -1,0 +1,21 @@
+{% extends 'index.html.twig' %}
+{% block content %}
+        <div class="col-4 m-auto">
+            <form method="post" action="{{ path( 'create_book' )}}">
+                <div class="d-flex justify-content-between">
+                    <label for="name">Название книги</label>
+                    <input name="name" id="name" type="text" value="{{ book.name ?? ''}}">
+                </div>
+                <div class="d-flex justify-content-between">
+                    <label for="author">Автор</label>
+                    <input name="author" id="name" type="text" value="{{ book.author ?? ''}}">
+                </div>
+                <div class="d-flex justify-content-between">
+                    <label for="year">Год издания</label>
+                    <input name="year" id="name" type="text" value="{{ book.year ?? ''}}">
+                </div>
+
+                <input class="btn badge-success rounded" type="submit" value="Создать">
+            </form>
+        </div>
+{% endblock %}

@@ -1,0 +1,9 @@
+{% block  nav %}
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-3">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item"><a class="nav-link" href="{{ path('home') }}">Главная </a></li>
+            <li class="nav-item"><a class="nav-link" href={{ path('books') }}>Список книг</a></li>
+            <li class="nav-item"><a class="nav-link" href="{{ path('create_book') }}">Добавить книгу</a></li>
+        </ul>
+    </nav>
+{% endblock %}

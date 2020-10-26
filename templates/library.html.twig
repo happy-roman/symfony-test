@@ -1,0 +1,28 @@
+{% extends 'index.html.twig' %}
+{% block content %}
+    {% if books == null %}
+        <p>Книг нет</p>
+    {% else %}
+        <ul class="navbar-nav mr-auto">
+            {% for book in books %}
+                <li class="nav-item">
+                    <h2 class="font-weight-bold">Название книги: {{ book.getName }}</h2>
+                    <h3 class="font-weight-bold">Автор: {{ book.getAuthor }}</h3>
+                    <h3 class="font-weight-bold">Год издания: {{ book.getYear }}</h3>
+
+                    <form method="post" action="{{ path('book_delete', { 'id': book.id } )}}"
+                          class="form-inline d-flex justify-content-between">
+
+                        <a href="{{ path('book_update', { 'id': book.id } )}}"
+                           class="btn btn-outline-success my-2 my-sm-0" type="submit">Изменить</a>
+
+                        <button type="submit" class="btn btn-outline-danger my-2 my-sm-0">Удалить</button>
+
+                    </form>
+                    <hr>
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+{% endblock %}

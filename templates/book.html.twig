@@ -1,0 +1,27 @@
+{% extends 'index.html.twig' %}
+{% block content %}
+    {% if book.id==id %}
+        <div class="col-4 m-auto">
+            <form method="post" action="{{ path( 'update', { 'id': book.id } )}}">
+                <div class="d-flex justify-content-between">
+                    <label for="name">Название книги</label>
+                    <input name="name" id="name" type="text" value="{{ book.name }}">
+                </div>
+                <div class="d-flex justify-content-between">
+                    <label for="author">Автор</label>
+                    <input name="author" id="name" type="text" value="{{ book.author }}">
+                </div>
+                <div class="d-flex justify-content-between">
+                    <label for="year">Год издания</label>
+                    <input name="year" id="name" type="text" value="{{ book.year }}">
+                </div>
+
+                <input class="btn badge-success rounded" type="submit" value="Изменить">
+            </form>
+        </div>
+
+    {% else %}
+        <p>Книги с таким ID нет</p>
+    {% endif %}
+
+{% endblock %}
